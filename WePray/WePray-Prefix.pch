@@ -1,0 +1,25 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+#define SCREEN_WIDTH                   [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT                  [UIScreen mainScreen].bounds.size.height
+#define SPACE_MARGIN_BORDER             10
+#define STATUS_BAR_HEIGHT               20
+#define NAVIGATION_BAR_HEIGHT           44
+#define TAB_BAR_HEIGHT                  50
+#define KEYBOARD_HEIGHT                 216
+
+#endif
