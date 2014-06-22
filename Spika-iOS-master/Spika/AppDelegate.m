@@ -913,8 +913,8 @@
               HUWallViewController *wallVC = [[HUWallViewController alloc] initWithUser:user];
               UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:wallVC];
               [self setBackgroundForNavigationBar:nav];
-              [_navigationController presentViewController:nav animated:YES completion:nil];
-//              [_navigationController pushViewController:wallVC animated:YES];
+//              [_navigationController presentViewController:nav animated:YES completion:nil];
+              [_navigationController pushViewController:wallVC animated:YES];
               
           
       }];

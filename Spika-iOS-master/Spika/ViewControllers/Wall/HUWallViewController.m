@@ -226,7 +226,8 @@
 - (void) loadView {
 
     [super loadView];
-    
+
+//    self.navigationItem.leftBarButtonItems = [self backBarButtonItemsWithSelector:@selector(backButtonDidPress:)];
 
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapOnTableView:)];
     [self.view addGestureRecognizer:tap];
@@ -289,6 +290,7 @@
 
 -(void) backButtonDidPress:(id)sender {
     [[AppDelegate getInstance].navigationController popViewControllerAnimated:YES];
+//    [[AppDelegate getInstance].navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
