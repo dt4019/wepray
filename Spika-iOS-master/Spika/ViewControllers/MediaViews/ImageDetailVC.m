@@ -235,7 +235,8 @@
     [StyleManupulator attachTextMessageInfoLabel:_labelInfo];
     [_scrollView addSubview:_labelInfo];
 
-    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+//    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+    [[AlertViewManager defaultManager] showHUD];
     
     [[DatabaseManager defaultManager] loadImage:_message.imageUrl
      

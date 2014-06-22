@@ -249,7 +249,7 @@ AlertViewManager *_AlertViewManager;
          ];
 
     });
-    
+    [self hideHUD];
 }
 
 -(void) dismissNow{
@@ -359,6 +359,14 @@ AlertViewManager *_AlertViewManager;
          }
      ];
     
+}
+
+- (void)showHUD{
+    [MBProgressHUD showHUDAddedTo:[[UIApplication sharedApplication] keyWindow] animated:YES];
+}
+
+- (void)hideHUD{
+    [MBProgressHUD hideHUDForView:[[UIApplication sharedApplication] keyWindow] animated:YES];
 }
 
 @end

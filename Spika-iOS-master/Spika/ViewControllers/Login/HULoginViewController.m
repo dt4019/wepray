@@ -219,7 +219,8 @@
     }
     
 
-    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+//    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+    [[AlertViewManager defaultManager] showHUD];
     
     NSString *email = _emailField.text;
     NSString *password = _passwordField.text;

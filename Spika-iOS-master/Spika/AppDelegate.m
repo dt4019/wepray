@@ -693,10 +693,10 @@
         queue:[NSOperationQueue mainQueue]
         usingBlock:^(NSNotification *notification) {
 
-            [self clearNavigationVC];
+//            [self clearNavigationVC];
             
             HUUsersViewController *usersVC = [[HUUsersViewController alloc] init];
-            [_navigationController pushViewController:usersVC animated:NO]; 
+            [_navigationController pushViewController:usersVC animated:YES];
     }];
 
     [[NSNotificationCenter defaultCenter] addObserverForName:NotificationSideMenuGroupsSelected
@@ -718,7 +718,7 @@
             ModelUser *user = (ModelUser *)[notification object];
             
             if([user._id isEqualToString:[[UserManager defaultManager] getLoginedUser]._id]){
-                [self clearNavigationVC];
+//                [self clearNavigationVC];
                 HUMyProfileViewController *myHUProfileViewController = [[HUMyProfileViewController alloc] initWithNibName:@"MyProflieView" bundle:nil];
                 [_navigationController pushViewController:myHUProfileViewController animated:YES];
                 
@@ -769,7 +769,7 @@
         queue:[NSOperationQueue mainQueue]
         usingBlock:^(NSNotification *notification) {
 
-            [self clearNavigationVC];
+//            [self clearNavigationVC];
             
             HUMyProfileViewController *myHUProfileViewController = [[HUMyProfileViewController alloc] initWithNibName:@"MyProflieView" bundle:nil];
             [_navigationController pushViewController:myHUProfileViewController animated:YES];

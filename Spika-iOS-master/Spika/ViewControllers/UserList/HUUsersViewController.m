@@ -37,6 +37,8 @@
 #import "DatabaseManager.h"
 #import "HUCachedImageLoader.h"
 
+#import "AppDelegate.h"
+
 #define MODELS @[@"ModelUser",@"ModelGroup"]    
 
 @interface HUUsersViewController (){
@@ -109,12 +111,12 @@
 }
 -(void) setNavigationItem {
     
-    [self addSlideButtonItem];
+//    [self addSlideButtonItem];
     
-    self.navigationItem.rightBarButtonItem = [CSKit barButtonItemWithNormalImageNamed:@"submenu_icon_off"
-                                                                          highlighted:nil
-                                                                               target:self
-                                                                             selector:@selector(toggleSubMenu:)];
+//    self.navigationItem.rightBarButtonItem = [CSKit barButtonItemWithNormalImageNamed:@"submenu_icon_off"
+//                                                                          highlighted:nil
+//                                                                               target:self
+//                                                                             selector:@selector(toggleSubMenu:)];
 }
 
 -(void) addSubMenuObserver {
@@ -290,6 +292,8 @@
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
+    
+    self.navigationItem.leftBarButtonItems = [self backBarButtonItemsWithSelector:@selector(backButtonDidPress:)];
 }
 
 - (void)viewDidLoad {
@@ -364,7 +368,8 @@
     
     self.navigationItem.title = NSLocalizedString(@"My Contacts", nil);
     
-    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+//    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+    [[AlertViewManager defaultManager] showHUD];
     
     ModelUser *user = [UserManager defaultManager].getLoginedUser;
     
@@ -523,6 +528,11 @@
     
     NSString *name = parameters[@"name"];
     [self searchUsersWithText:name];
+}
+
+-(void) backButtonDidPress:(id)sender {
+//    [[AppDelegate getInstance].navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

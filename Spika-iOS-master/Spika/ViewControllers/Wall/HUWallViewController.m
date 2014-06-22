@@ -1160,7 +1160,8 @@
 
     [_loadingViewCell show];
     
-    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+//    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+    [[AlertViewManager defaultManager] showHUD];
 }
 
 #pragma mark - HPGrowingTextViewDelegate

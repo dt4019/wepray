@@ -167,7 +167,8 @@
         ModelUser *user = [[UserManager defaultManager] getLoginedUser];
         NSString *email = user.email;
         
-        [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+//        [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+        [[AlertViewManager defaultManager] showHUD];
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             

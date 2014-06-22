@@ -50,7 +50,9 @@
         [[AlertViewManager defaultManager] dismiss];
     };
     
-    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+//    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+    [[AlertViewManager defaultManager] showHUD];
+    
     [[DatabaseManager defaultManager] getServerListWithSuccess:successBlock andError:nil];}
 
 -(void)viewWillAppear:(BOOL)animated

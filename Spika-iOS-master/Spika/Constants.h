@@ -165,7 +165,7 @@
 #define kHUColorGrayMenuSeparator   UIColorFromRGB(0x242424)
 
 #define kHUColorLightGray           UIColorFromRGB(0x7D7D7D)
-#define kHUColorGreen               UIColorFromRGB(0x00CC7B)
+#define kHUColorGreen               UIColorFromRGB(0x0000FF)
 #define kHUColorLightRed            UIColorFromRGB(0xE81757) 
 #define kHUColorWhite               [UIColor whiteColor]
 

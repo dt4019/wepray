@@ -30,6 +30,8 @@
 #import "HUCachedImageLoader.h"
 #import "Utils.h"
 
+#import "AppDelegate.h"
+
 @interface HURecentActivityViewController ()
 
 @end
@@ -84,7 +86,7 @@
 	
 	[super loadView];
 	
-    [self addSlideButtonItem];
+//    [self addSlideButtonItem];
 	self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     _noItemsLabel = [self noItemsLabel];
@@ -92,6 +94,11 @@
     
     _noItemsLabel.hidden = YES;
     
+    
+    self.navigationItem.rightBarButtonItem = [CSKit barButtonItemWithNormalImageNamed:@"icon_users"
+                                                                            highlighted:nil
+                                                                                 target:self
+                                                                               selector:@selector(toggleSubMenu:)];
 }
 
 - (void)viewDidLoad
@@ -115,6 +122,10 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.view.userInteractionEnabled = true;
+    
+//    self.navigationItem.leftBarButtonItems = [self backBarButtonItemsWithSelector:@selector(backButtonDidPress:)];
+    self.navigationItem.leftBarButtonItem=nil;
+    self.navigationItem.hidesBackButton=YES;
 }
 
 #pragma mark - UITableViewDatasource
@@ -227,6 +238,14 @@
     }
     
 
+}
+
+-(void) toggleSubMenu:(UIButton*) button {
+    [[NSNotificationCenter defaultCenter] postNotificationName:NotificationSideMenuUsersSelected object:nil];
+}
+
+-(void) backButtonDidPress:(id)sender {
+    [[AppDelegate getInstance].navigationController popViewControllerAnimated:YES];
 }
 
 @end

@@ -25,6 +25,8 @@
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 
+#import "MBProgressHUD.h"
+
 typedef void (^HUStringBlock)(NSString *);
 
 
@@ -55,6 +57,10 @@ typedef void (^HUStringBlock)(NSString *);
 -(void) dismissNow;
 -(void) showInputPassword:(NSString *)title resultBlock:(HUStringBlock)successBlock;
 -(void) showTutorial:(NSString *)message;
+
+- (void)showHUD;
+
+- (void)hideHUD;
 
 @property (nonatomic, assign) UIAlertView *alertView;
 

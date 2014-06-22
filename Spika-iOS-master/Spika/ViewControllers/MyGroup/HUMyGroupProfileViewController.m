@@ -260,7 +260,8 @@
         
         HUMyGroupProfileViewController *this = self;
         
-        [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+//        [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+        [[AlertViewManager defaultManager] showHUD];
         
         [[DatabaseManager defaultManager] updateGroup:_group avatarImage:_avatarImage success:^(BOOL isSuccess, NSString *errorStr) {
             

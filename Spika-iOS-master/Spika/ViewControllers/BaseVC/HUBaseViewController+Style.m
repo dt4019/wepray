@@ -164,7 +164,7 @@
 + (UIColor *) colorWithSharedColorType:(HUSharedColorType)sharedColorType {
 
     if (sharedColorType == HUSharedColorTypeGreen) {
-        return [UIColor colorWithIntegralRed:0 green:204 blue:123];
+        return [UIColor colorWithIntegralRed:0 green:0 blue:255];
     }
     else if (sharedColorType == HUSharedColorTypeDark) {
         return [UIColor blackColor];

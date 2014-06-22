@@ -248,7 +248,6 @@
     
     [_userAvatarImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarImageViewDidTap:)]];
     [_userAvatarImageView setUserInteractionEnabled:NO];
-
 }
 
 -(void) enableEditors{
@@ -410,7 +409,8 @@
             return;
         }
         
-        [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+//        [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+        [[AlertViewManager defaultManager] showHUD];
         
         _user.name = _nameValueLabel.text;
         _user.about = _aboutValueLabel.text;
@@ -752,6 +752,5 @@
     
     
 }
-
 
 @end

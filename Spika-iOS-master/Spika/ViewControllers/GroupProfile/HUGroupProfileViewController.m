@@ -321,7 +321,8 @@
 -(void) onRemove{
     
     
-    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+//    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+    [[AlertViewManager defaultManager] showHUD];
     
     void(^successBlock)(BOOL success, NSString *error) = ^(BOOL success, NSString *error)
 	{
@@ -377,7 +378,8 @@
     }
 
     
-    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+//    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+    [[AlertViewManager defaultManager] showHUD];
     
     void(^successBlock)(BOOL success, NSString *error) = ^(BOOL success, NSString *error)
 	{
@@ -418,7 +420,9 @@
                                                  resultBlock:^(NSString *password){
                                                      
                                                      if(password != nil && [[Utils MD5:password] isEqualToString:_group.password]) {
-                                                         [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+//                                                         [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+                                                         [[AlertViewManager defaultManager] showHUD];
+                                                         
                                                          [self savePassword:_group.password forGroup:_group._id];
                                                          [[DatabaseManager defaultManager] addGroupToFavorite:_group
                                                                                                        toUser:[[UserManager defaultManager] getLoginedUser]

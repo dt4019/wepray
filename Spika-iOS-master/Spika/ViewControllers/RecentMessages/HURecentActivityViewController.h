@@ -23,6 +23,7 @@
  */
 
 #import "HUBaseTableViewController.h"
+#import "HUBaseViewController+Style.h"
 
 @class ModelRecentActivity;
 

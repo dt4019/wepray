@@ -28,6 +28,7 @@
 		4012FAB618D9794D004B1538 /* HUUserListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4012FAB418D9794D004B1538 /* HUUserListCell.xib */; };
 		4012FABE18D97B39004B1538 /* HUUsersInGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4012FABC18D97B39004B1538 /* HUUsersInGroupViewController.m */; };
 		4012FABF18D97B39004B1538 /* HUUsersInGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4012FABD18D97B39004B1538 /* HUUsersInGroupViewController.xib */; };
+		680729D01956C8D80047320B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 680729CF1956C8D80047320B /* MBProgressHUD.m */; };
 		6840680B19531F8B00E7C6C3 /* AKTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 684067F419531F8B00E7C6C3 /* AKTab.m */; };
 		6840680C19531F8B00E7C6C3 /* AKTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 684067F619531F8B00E7C6C3 /* AKTabBar.m */; };
 		6840680D19531F8B00E7C6C3 /* AKTabBarController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 684067F819531F8B00E7C6C3 /* AKTabBarController.bundle */; };
@@ -510,6 +511,8 @@
 		4012FABB18D97B39004B1538 /* HUUsersInGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUUsersInGroupViewController.h; sourceTree = "<group>"; };
 		4012FABC18D97B39004B1538 /* HUUsersInGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUUsersInGroupViewController.m; sourceTree = "<group>"; };
 		4012FABD18D97B39004B1538 /* HUUsersInGroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HUUsersInGroupViewController.xib; sourceTree = "<group>"; };
+		680729CE1956C8D80047320B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		680729CF1956C8D80047320B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		684067F319531F8B00E7C6C3 /* AKTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKTab.h; sourceTree = "<group>"; };
 		684067F419531F8B00E7C6C3 /* AKTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKTab.m; sourceTree = "<group>"; };
 		684067F519531F8B00E7C6C3 /* AKTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKTabBar.h; sourceTree = "<group>"; };
@@ -1298,6 +1301,15 @@
 			name = User;
 			sourceTree = "<group>";
 		};
+		680729CD1956C8D80047320B /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				680729CE1956C8D80047320B /* MBProgressHUD.h */,
+				680729CF1956C8D80047320B /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		684067F219531F8B00E7C6C3 /* AKTabBarController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2027,6 +2039,7 @@
 		ADC644C717E0761600C16A9D /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				680729CD1956C8D80047320B /* MBProgressHUD */,
 				6840681B195322D900E7C6C3 /* JPSThumbnailAnnotation */,
 				684067F219531F8B00E7C6C3 /* AKTabBarController */,
 				ADC644CB17E0761600C16A9D /* DatabaseManager.h */,
@@ -3153,6 +3166,7 @@
 				ADC6478C17E0761700C16A9D /* MessageTypeEmoticonCell.m in Sources */,
 				ADC6478D17E0761700C16A9D /* MessageTypeImageCell+Style.m in Sources */,
 				B37479C718745EDA001CE0E7 /* HUPasswordSetNewViewController.m in Sources */,
+				680729D01956C8D80047320B /* MBProgressHUD.m in Sources */,
 				ADC6478E17E0761700C16A9D /* MessageTypeImageCell.m in Sources */,
 				B37479CC18745EDA001CE0E7 /* HUPhotoDetailViewController+Style.m in Sources */,
 				B37479D618745EDA001CE0E7 /* LocationViewController+Style.m in Sources */,

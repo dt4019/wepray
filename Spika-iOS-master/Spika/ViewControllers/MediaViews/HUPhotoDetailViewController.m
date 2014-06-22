@@ -75,7 +75,8 @@
 
 -(void) reload {
     
-    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+//    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+    [[AlertViewManager defaultManager] showHUD];
     
     [[DatabaseManager defaultManager] loadImage:self.message.imageUrl success:^(UIImage *image) {
         

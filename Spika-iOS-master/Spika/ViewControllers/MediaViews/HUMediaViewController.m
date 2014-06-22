@@ -442,7 +442,8 @@
     
     if(index == 0) {
         
-        [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+//        [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+        [[AlertViewManager defaultManager] showHUD];
 
         [[DatabaseManager defaultManager] report:_message success:^(id result) {
             

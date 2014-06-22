@@ -210,12 +210,6 @@
     self.navigationItem.rightBarButtonItems = [self removeContactBarButtonItemsWithSelector:@selector(onRemoveContact:)];
 }
 
-
--(void) backButtonDidPress:(id)sender {
-    [[AppDelegate getInstance].navigationController popViewControllerAnimated:YES];
-}
-
-
 - (NSString *) title {
     return self.user.name;
 }
@@ -333,7 +327,8 @@
         return;
     }
     
-    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+//    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+    [[AlertViewManager defaultManager] showHUD];
     
     [[DatabaseManager defaultManager] updateUserAddRemoveContacts:myUser
                                                         contactId:self.user._id
@@ -373,7 +368,8 @@
     
     ModelUser *myUser = [UserManager defaultManager].getLoginedUser;
     
-    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+//    [[AlertViewManager defaultManager] showWaiting:@"" message:@""];
+    [[AlertViewManager defaultManager] showHUD];
     
     [[DatabaseManager defaultManager] updateUserAddRemoveContacts:myUser
                                                         contactId:self.user._id
