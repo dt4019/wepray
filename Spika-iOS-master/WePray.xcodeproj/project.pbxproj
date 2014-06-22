@@ -503,7 +503,7 @@
 		1FAADBB4191A435600244993 /* DHValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHValidation.h; sourceTree = "<group>"; };
 		1FAADBB5191A435600244993 /* DHValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHValidation.m; sourceTree = "<group>"; };
 		1FAADBB7191A47D700244993 /* CSGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSGraphics.h; sourceTree = "<group>"; };
-		36EBC6D2B81D2E1E98E5955D /* Spika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spika.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		36EBC6D2B81D2E1E98E5955D /* WePray.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WePray.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4012FAB218D9794D004B1538 /* HUUserListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUUserListCell.h; sourceTree = "<group>"; };
 		4012FAB318D9794D004B1538 /* HUUserListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUUserListCell.m; sourceTree = "<group>"; };
 		4012FAB418D9794D004B1538 /* HUUserListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HUUserListCell.xib; sourceTree = "<group>"; };
@@ -894,8 +894,8 @@
 		ADC6452417E0761600C16A9D /* ModelUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelUser.h; sourceTree = "<group>"; };
 		ADC6452517E0761600C16A9D /* ModelUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelUser.m; sourceTree = "<group>"; };
 		ADC6452617E0761600C16A9D /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
-		ADC6452717E0761600C16A9D /* Spika-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Spika-Info.plist"; sourceTree = "<group>"; };
-		ADC6452817E0761600C16A9D /* Spika-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Spika-Prefix.pch"; sourceTree = "<group>"; };
+		ADC6452717E0761600C16A9D /* WePray-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "WePray-Info.plist"; sourceTree = "<group>"; };
+		ADC6452817E0761600C16A9D /* WePray-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WePray-Prefix.pch"; sourceTree = "<group>"; };
 		ADC6459817E0761600C16A9D /* MapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapVC.h; sourceTree = "<group>"; };
 		ADC6459917E0761600C16A9D /* MapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapVC.m; sourceTree = "<group>"; };
 		ADC6459B17E0761600C16A9D /* RootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootVC.h; sourceTree = "<group>"; };
@@ -1278,7 +1278,7 @@
 		36EBC07448B218D60B2C2A43 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				36EBC6D2B81D2E1E98E5955D /* Spika.app */,
+				36EBC6D2B81D2E1E98E5955D /* WePray.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1286,7 +1286,6 @@
 		36EBCBE1892A80D43E9D3D77 = {
 			isa = PBXGroup;
 			children = (
-				684068191953208600E7C6C3 /* ImageIO.framework */,
 				ADC6436817E0761400C16A9D /* Spika */,
 				36EBC07448B218D60B2C2A43 /* Products */,
 			);
@@ -1395,8 +1394,8 @@
 			isa = PBXGroup;
 			children = (
 				ADC6437517E0761500C16A9D /* CSCodingConventions-MUST_READ */,
-				ADC6452717E0761600C16A9D /* Spika-Info.plist */,
-				ADC6452817E0761600C16A9D /* Spika-Prefix.pch */,
+				ADC6452717E0761600C16A9D /* WePray-Info.plist */,
+				ADC6452817E0761600C16A9D /* WePray-Prefix.pch */,
 				ADC6450117E0761600C16A9D /* main.m */,
 				ADC6436917E0761500C16A9D /* AppDelegate.h */,
 				ADC6436A17E0761500C16A9D /* AppDelegate.m */,
@@ -2327,6 +2326,7 @@
 		ADC6479E17E078BE00C16A9D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				684068191953208600E7C6C3 /* ImageIO.framework */,
 				6840681719531FD300E7C6C3 /* SDWebImage.framework */,
 				ADC647B717E079B600C16A9D /* MobileCoreServices.framework */,
 				ADC647B517E0798500C16A9D /* CoreMedia.framework */,
@@ -2674,9 +2674,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		36EBCFF260C77D50801513EE /* Spika */ = {
+		36EBCFF260C77D50801513EE /* WePray */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 36EBC4FF4C7B35147661EFE6 /* Build configuration list for PBXNativeTarget "Spika" */;
+			buildConfigurationList = 36EBC4FF4C7B35147661EFE6 /* Build configuration list for PBXNativeTarget "WePray" */;
 			buildPhases = (
 				36EBC006F647B7BA23BFEBF6 /* Sources */,
 				36EBC6F734F63785B4B425C9 /* Frameworks */,
@@ -2686,9 +2686,9 @@
 			);
 			dependencies = (
 			);
-			name = Spika;
+			name = WePray;
 			productName = Bind;
-			productReference = 36EBC6D2B81D2E1E98E5955D /* Spika.app */;
+			productReference = 36EBC6D2B81D2E1E98E5955D /* WePray.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2704,7 +2704,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 36EBC29149579B38EAD70952 /* Build configuration list for PBXProject "Spika" */;
+			buildConfigurationList = 36EBC29149579B38EAD70952 /* Build configuration list for PBXProject "WePray" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -2720,7 +2720,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				36EBCFF260C77D50801513EE /* Spika */,
+				36EBCFF260C77D50801513EE /* WePray */,
 			);
 		};
 /* End PBXProject section */
@@ -3225,8 +3225,8 @@
 					"$(PROJECT_DIR)/Spika/lib",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Spika/Spika-Prefix.pch";
-				INFOPLIST_FILE = "Spika/Spika-Info.plist";
+				GCC_PREFIX_HEADER = "Spika/WePray-Prefix.pch";
+				INFOPLIST_FILE = "Spika/WePray-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3234,7 +3234,7 @@
 					"$(PROJECT_DIR)/Spika/External/CrittercismSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = Spika;
+				PRODUCT_NAME = WePray;
 				PROVISIONING_PROFILE = "1272BF7C-69C7-493B-9890-CF362B8D8932";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1272BF7C-69C7-493B-9890-CF362B8D8932";
 				WRAPPER_EXTENSION = app;
@@ -3310,8 +3310,8 @@
 					"$(PROJECT_DIR)/Spika/lib",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Spika/Spika-Prefix.pch";
-				INFOPLIST_FILE = "Spika/Spika-Info.plist";
+				GCC_PREFIX_HEADER = "Spika/WePray-Prefix.pch";
+				INFOPLIST_FILE = "Spika/WePray-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3319,7 +3319,7 @@
 					"$(PROJECT_DIR)/Spika/External/CrittercismSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = Spika;
+				PRODUCT_NAME = WePray;
 				PROVISIONING_PROFILE = "1272BF7C-69C7-493B-9890-CF362B8D8932";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1272BF7C-69C7-493B-9890-CF362B8D8932";
 				WRAPPER_EXTENSION = app;
@@ -3364,8 +3364,8 @@
 					"$(PROJECT_DIR)/Spika/lib",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Spika/Spika-Prefix.pch";
-				INFOPLIST_FILE = "Spika/Spika-Info.plist";
+				GCC_PREFIX_HEADER = "Spika/WePray-Prefix.pch";
+				INFOPLIST_FILE = "Spika/WePray-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3373,7 +3373,7 @@
 					"$(PROJECT_DIR)/Spika/External/CrittercismSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = Spika;
+				PRODUCT_NAME = WePray;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1272BF7C-69C7-493B-9890-CF362B8D8932";
 				WRAPPER_EXTENSION = app;
@@ -3383,7 +3383,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		36EBC29149579B38EAD70952 /* Build configuration list for PBXProject "Spika" */ = {
+		36EBC29149579B38EAD70952 /* Build configuration list for PBXProject "WePray" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				36EBCA652683F6CD98182593 /* Release */,
@@ -3393,7 +3393,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		36EBC4FF4C7B35147661EFE6 /* Build configuration list for PBXNativeTarget "Spika" */ = {
+		36EBC4FF4C7B35147661EFE6 /* Build configuration list for PBXNativeTarget "WePray" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				36EBCE6AA820D10B12F5C7A7 /* Release */,

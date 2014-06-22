@@ -123,9 +123,12 @@
     
     Map *map = [[Map alloc]initWithNibName:@"Map" bundle:nil];
     UINavigationController *navMap = [[UINavigationController alloc]initWithRootViewController:map];
+    navMap.navigationBar.barTintColor = [UIColor whiteColor];
+//    navMap.navigationBar.tintColor = [UIColor whiteColor];
+    [self setBackgroundForNavigationBar:navMap];
     
     _tabBarController = [[AKTabBarController alloc] initWithTabBarHeight:TAB_BAR_HEIGHT position:AKTabBarPositionBottom];
-    [_tabBarController setViewControllers:[[NSMutableArray alloc]initWithArray:[NSArray arrayWithObjects:_navigationController, navMap, nil]]];
+    [_tabBarController setViewControllers:[[NSMutableArray alloc]initWithArray:[NSArray arrayWithObjects:_navigationController, map, nil]]];
     
     self.window.rootViewController = _tabBarController;
     
@@ -908,7 +911,10 @@
               ModelUser *user = (ModelUser *)[notification object];
               
               HUWallViewController *wallVC = [[HUWallViewController alloc] initWithUser:user];
-              [_navigationController pushViewController:wallVC animated:YES];
+              UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:wallVC];
+              [self setBackgroundForNavigationBar:nav];
+              [_navigationController presentViewController:nav animated:YES completion:nil];
+//              [_navigationController pushViewController:wallVC animated:YES];
               
           
       }];
@@ -1087,11 +1093,13 @@
     [defaults synchronize];
 }
 
-- (void)abc{
-    int index = _tabBarController.selectedIndex;
-    UINavigationController *nav = [_tabBarController.viewControllers objectAtIndex:index];
-//    [nav pushViewController:activityViewController animated:YES];
+- (void) setBackgroundForNavigationBar:(UINavigationController *)nav{
+    if ([nav.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
+        [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"hp_nav_bar_background"] forBarMetrics:UIBarMetricsDefault];
+    }
+    else {
+        [nav.navigationBar setNeedsDisplay];
+    }
 }
-
 
 @end

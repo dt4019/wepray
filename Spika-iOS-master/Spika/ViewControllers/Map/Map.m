@@ -27,7 +27,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"WePray";
+    self.title = @"People arround me";
+    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
+    {
+        [self prefersStatusBarHidden];
+        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    }
+    else
+    {
+        // iOS 6
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    }
     
     [mapView setMapType:MKMapTypeStandard];
     [mapView setZoomEnabled:YES];
@@ -39,7 +49,10 @@
     
     [self startUpdates];
 }
-
+// Add this Method
+- (BOOL)prefersStatusBarHidden {
+    return YES;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
