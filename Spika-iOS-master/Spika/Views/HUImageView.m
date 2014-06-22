@@ -43,8 +43,7 @@
 #pragma mark - Memory Management
 
 - (void)dealloc {
-    [self removeObserver:self
-              forKeyPath:@"imageURL"];
+//    [self removeObserver:self forKeyPath:@"imageURL"];
 }
 
 #pragma mark - Initialization
