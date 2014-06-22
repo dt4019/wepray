@@ -423,7 +423,7 @@
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     
     CGRect contentViewFrame = self.view.bounds;
-    contentViewFrame.size.height -= kbSize.height;
+    contentViewFrame.size.height -= kbSize.height - TAB_BAR_HEIGHT;
     
     NSNumber *duration = [aNotification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     UIViewAnimationOptions curve = [[aNotification.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
@@ -1186,7 +1186,9 @@
     CGRect textInputFrame = messageInputTextFieldFrame;
     
     if(_mediaButton.hidden == NO)
-        _messageInputTextField.frame = textInputFrame;
+//        _messageInputTextField.frame = textInputFrame;
+    
+    _messageInputTextField.frame = CGRectMake(textInputFrame.origin.x - _mediaButton.frame.size.width, textInputFrame.origin.y, _messageInputTextField.frame.size.width, textInputFrame.size.height);
 }   
 
 - (BOOL) growingTextViewShouldBeginEditing:(HPGrowingTextView *)growingTextView {
