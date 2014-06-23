@@ -354,7 +354,7 @@
     
     [super viewDidLoad];
     
-    [self showTutorialIfCan:NSLocalizedString(@"tutorial-wall",nil)];
+//    [self showTutorialIfCan:NSLocalizedString(@"tutorial-wall",nil)];
     self.transitionDelegate = [[TransitionDelegate alloc] init];
 }
 

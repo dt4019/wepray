@@ -63,7 +63,7 @@
     
     [super loadView];
     
-    [self showTutorialIfCan:NSLocalizedString(@"tutorial-group-add",nil)];
+//    [self showTutorialIfCan:NSLocalizedString(@"tutorial-group-add",nil)];
     
     _categoryValueLabel.enabled = NO;
     _nameValueLabel.enabled = YES;

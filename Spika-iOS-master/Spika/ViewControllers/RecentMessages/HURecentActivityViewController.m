@@ -31,6 +31,7 @@
 #import "Utils.h"
 
 #import "AppDelegate.h"
+#import "UserManager.h"
 
 @interface HURecentActivityViewController ()
 
@@ -106,7 +107,26 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    [self showTutorialIfCan:NSLocalizedString(@"tutorial-recent",nil)];
+//    [self showTutorialIfCan:NSLocalizedString(@"tutorial-recent",nil)];
+    
+    // load current user
+    ModelUser *_user = [UserManager defaultManager].getLoginedUser;
+    _user.about = @"10.781635,106.630618";
+    [[DatabaseManager defaultManager] updateUser:_user
+                                        oldEmail:_user.email
+                                         success:^(BOOL isSuccess, NSString *errStr){
+                                             dispatch_async(dispatch_get_main_queue(), ^{
+                                                 if (isSuccess) {
+                                                     [[UserManager defaultManager] reloadUserDataWithCompletion:^(id result) {
+                                                         NSLog(@"update location of current user success");
+                                                     }];
+                                                     
+                                                 }
+                                             });
+                                             
+                                         } error:^(NSString *errStr){
+                                             NSLog(@"update location of current user fail");
+                                         }];
 }
 // Setting the title of the tab.
 - (NSString *)tabTitle

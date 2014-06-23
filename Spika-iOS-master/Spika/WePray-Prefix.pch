@@ -26,4 +26,8 @@
     #import "UIView+Extensions.h"
     #import "HUControls.h"
     #import "ServerManager.h"
+
+#define API_SERVER_HOST     @"http://chi11.stablehost.com/~swishlis/wepray/"
+#define APPLICATION_JSON            @"application/json"
+
 #endif

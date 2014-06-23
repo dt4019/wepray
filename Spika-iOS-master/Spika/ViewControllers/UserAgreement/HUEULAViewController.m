@@ -52,8 +52,8 @@
     
     NSString *htmlURL = [NSString stringWithFormat:@"%@/eula/%@",DefaultPageUrl,NSLocalizedString(@"EULA_FILE", nil)];
     
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:htmlURL]]];
     webView.delegate = self;
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:htmlURL]]];
     
     [self.view addSubview:titleLabel];
     
@@ -76,14 +76,16 @@
                      }
      ];
 }
-
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    
+}
 - (IBAction) okButtonDidPress:(id) sender{
     
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     [userDefault setObject:@"OK" forKey:EULAAgreed];
     [userDefault synchronize];
     
-    [[AlertViewManager defaultManager] showTutorial:NSLocalizedString(@"tutorial-login",nil)];
+//    [[AlertViewManager defaultManager] showTutorial:NSLocalizedString(@"tutorial-login",nil)];
     
     [self dismissViewControllerAnimated:YES
                              completion:nil];

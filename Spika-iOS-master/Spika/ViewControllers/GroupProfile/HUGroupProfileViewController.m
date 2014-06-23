@@ -151,7 +151,7 @@
 
     _pickerTableView = [HUPickerTableView pickerTableViewFor:self];
     
-    [self showTutorialIfCan:NSLocalizedString(@"tutorial-groupprofile",nil)];
+//    [self showTutorialIfCan:NSLocalizedString(@"tutorial-groupprofile",nil)];
 
     [_startConversationBtn setTitle:NSLocalizedString(@"Start-Conversation", nil) forState:UIControlStateNormal];
     [_categoryLabel setText:NSLocalizedString(@"GroupCategory-Title", nil)];

@@ -63,6 +63,8 @@
 		687517871956D5A60054BB00 /* Icon-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 687517781956D5A60054BB00 /* Icon-1024.png */; };
 		6875178A1956D6060054BB00 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 687517881956D6060054BB00 /* Default-568h@2x.png */; };
 		6875178B1956D6060054BB00 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 687517891956D6060054BB00 /* Default~iphone.png */; };
+		687517931956D9EA0054BB00 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 687517921956D9EA0054BB00 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		687517971956DAB90054BB00 /* WebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 687517961956DAB90054BB00 /* WebService.m */; };
 		74B0EDBF18E46281006D0F54 /* HUServerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B0EDBD18E46281006D0F54 /* HUServerListCell.m */; };
 		74B0EDC018E46281006D0F54 /* HUServerListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74B0EDBE18E46281006D0F54 /* HUServerListCell.xib */; };
 		74B0EDC618E48298006D0F54 /* HUServerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74B0EDC418E48298006D0F54 /* HUServerListViewController.m */; };
@@ -573,6 +575,10 @@
 		687517781956D5A60054BB00 /* Icon-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-1024.png"; sourceTree = "<group>"; };
 		687517881956D6060054BB00 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		687517891956D6060054BB00 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
+		687517911956D9EA0054BB00 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		687517921956D9EA0054BB00 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		687517951956DAB90054BB00 /* WebService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebService.h; sourceTree = "<group>"; };
+		687517961956DAB90054BB00 /* WebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebService.m; sourceTree = "<group>"; };
 		74B0EDBC18E46281006D0F54 /* HUServerListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUServerListCell.h; sourceTree = "<group>"; };
 		74B0EDBD18E46281006D0F54 /* HUServerListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUServerListCell.m; sourceTree = "<group>"; };
 		74B0EDBE18E46281006D0F54 /* HUServerListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HUServerListCell.xib; sourceTree = "<group>"; };
@@ -1391,6 +1397,24 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		687517901956D9EA0054BB00 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				687517911956D9EA0054BB00 /* JSONKit.h */,
+				687517921956D9EA0054BB00 /* JSONKit.m */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
+		687517941956DAB90054BB00 /* Webservice */ = {
+			isa = PBXGroup;
+			children = (
+				687517951956DAB90054BB00 /* WebService.h */,
+				687517961956DAB90054BB00 /* WebService.m */,
+			);
+			path = Webservice;
+			sourceTree = "<group>";
+		};
 		74B0EDBB18E46201006D0F54 /* ServerListCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1651,6 +1675,7 @@
 		ADC643E017E0761500C16A9D /* External */ = {
 			isa = PBXGroup;
 			children = (
+				687517941956DAB90054BB00 /* Webservice */,
 				1FAADB89191A430500244993 /* AFNetworking */,
 				1FAADBA3191A430500244993 /* AutoScrollLabel */,
 				FA1EF3C818D3568E00B53D76 /* CSKit */,
@@ -2075,6 +2100,7 @@
 		ADC644C717E0761600C16A9D /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				687517901956D9EA0054BB00 /* JSONKit */,
 				680729CD1956C8D80047320B /* MBProgressHUD */,
 				6840681B195322D900E7C6C3 /* JPSThumbnailAnnotation */,
 				684067F219531F8B00E7C6C3 /* AKTabBarController */,
@@ -3098,6 +3124,7 @@
 				ADC6471317E0761700C16A9D /* NSData+Base64.m in Sources */,
 				B37479F218746272001CE0E7 /* _HUPasswordBaseViewController.m in Sources */,
 				ADC6471417E0761700C16A9D /* NSString+MD5.m in Sources */,
+				687517971956DAB90054BB00 /* WebService.m in Sources */,
 				ADC6471517E0761700C16A9D /* StrManager.m in Sources */,
 				ADC6471617E0761700C16A9D /* StyleManupulator.m in Sources */,
 				ADC6471717E0761700C16A9D /* UserManager.m in Sources */,
@@ -3198,6 +3225,7 @@
 				ADC6478317E0761700C16A9D /* HUSearchBarCellView.m in Sources */,
 				ADC6478417E0761700C16A9D /* HUSearchByNameView.m in Sources */,
 				ADC6478517E0761700C16A9D /* HUSegmentedControl.m in Sources */,
+				687517931956D9EA0054BB00 /* JSONKit.m in Sources */,
 				B37479DB18745EDA001CE0E7 /* HURecentActivityViewController+Style.m in Sources */,
 				ADC6478617E0761700C16A9D /* HUSelectedTableViewCellVew.m in Sources */,
 				ADC6478717E0761700C16A9D /* HUVideoPlayerView.m in Sources */,

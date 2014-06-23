@@ -213,7 +213,7 @@
     [self addSubMenuObserver];
 
     
-    _tutorialShowed = [self showTutorialIfCan:NSLocalizedString(@"tutorial-groups",nil)];
+//    _tutorialShowed = [self showTutorialIfCan:NSLocalizedString(@"tutorial-groups",nil)];
 
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableHeaderView = nil;

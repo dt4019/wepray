@@ -179,7 +179,7 @@
             [self addContactRemoveButton];
         }
         
-        [self showTutorialIfCan:NSLocalizedString(@"tutorial-userprofile",nil)];
+//        [self showTutorialIfCan:NSLocalizedString(@"tutorial-userprofile",nil)];
         
     }else{
         self.navigationItem.rightBarButtonItem = nil;

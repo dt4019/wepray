@@ -26,9 +26,15 @@
 
 #define ServerListAPIURL        @"http://officialapi.spikaapp.com/api/servers"
 
+//#define ServerListAPIURL @"http://tinycom.asuscomm.com/Spika-Server-master/wwwroot/api/servers"
+
 /* change here */
-#define DefaultAPIEndPoint             @"http://officialapi.spikaapp.com"
-#define DefaultPageUrl             @"http://officialapi.spikaapp.com/page"
+#define DefaultAPIEndPoint              @"http://officialapi.spikaapp.com"
+#define DefaultPageUrl                  @"http://officialapi.spikaapp.com/page"
+
+//#define DefaultAPIEndPoint              @"http://tinycom.asuscomm.com/Spika-Server-master/wwwroot"
+//#define DefaultPageUrl                  @"http://tinycom.asuscomm.com/Spika-Server-master/wwwroot/page"
+/* end change here */
 /* end change here */
 
 #define DatabaseURL             [NSString stringWithFormat:@"%@/api",[ServerManager serverBaseUrl]]
@@ -166,7 +172,8 @@
 
 #define kHUColorLightGray           UIColorFromRGB(0x7D7D7D)
 #define kHUColorGreen               UIColorFromRGB(0x0000FF)
-#define kHUColorLightRed            UIColorFromRGB(0xE81757) 
+//#define kHUColorLightRed            UIColorFromRGB(0xE81757)
+#define kHUColorLightRed            UIColorFromRGB(0xADADAD)
 #define kHUColorWhite               [UIColor whiteColor]
 
 //in seconds...

@@ -14,6 +14,10 @@
 #import "JPSThumbnailAnnotation.h"
 #import "User.h"
 
+#import "UserManager.h"
+#import "AlertViewManager.h"
+#import "DatabaseManager.h"
+
 @interface Map : UIViewController<MKMapViewDelegate,MKAnnotation, CLLocationManagerDelegate>{
     IBOutlet MKMapView *mapView;
     CLLocationManager *locationManager;

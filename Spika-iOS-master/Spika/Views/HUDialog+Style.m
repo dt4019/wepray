@@ -112,7 +112,8 @@
 }
 
 +(UIColor *) cancelButtonBackgroundColor {
-    return [UIColor colorWithIntegralRed:235 green:0 blue:86];
+//    return [UIColor colorWithIntegralRed:235 green:0 blue:86];
+    return [UIColor colorWithIntegralRed:173 green:173 blue:173];
 }
 
 +(UIColor *) cancelButtonTextColor {
@@ -120,7 +121,8 @@
 }
 
 +(UIColor *) otherButtonBackgroundColor {
-    return [UIColor colorWithIntegralRed:0 green:204 blue:123];
+//    return [UIColor colorWithIntegralRed:0 green:204 blue:123];
+    return [UIColor colorWithIntegralRed:0 green:0 blue:255];
 }
 
 +(UIColor *) otherButtonTextColor {

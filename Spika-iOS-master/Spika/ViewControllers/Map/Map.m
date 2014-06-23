@@ -45,9 +45,35 @@
     
     [self showCureentLocation];
     
-    [self getListUsers];
+//    [self getListUsers];
     
     [self startUpdates];
+    
+    
+    // load list friends
+    [[AlertViewManager defaultManager] showHUD];
+    
+    ModelUser *user = [UserManager defaultManager].getLoginedUser;
+    
+    void(^successBlock)(id result) = ^(id result) {
+        [[AlertViewManager defaultManager] dismiss];
+        dataSource = [[NSMutableArray alloc]initWithArray:result];
+        
+        for (ModelUser *_user in dataSource) {
+            int index = [dataSource indexOfObject:_user];
+            double latitude = 10.779442 + index * 0.1;
+            double longitude = 106.632817 + index * 0.1;
+            _user.about = [NSString stringWithFormat:@"%f,%f", latitude, longitude];
+            [self pinUserToMap:_user];
+        }
+    };
+    
+    [[DatabaseManager defaultManager] findUserContactList:user
+                                                  success:successBlock
+                                                    error:nil];
+}
+- (void)viewWillAppear:(BOOL)animated{
+    
 }
 // Add this Method
 - (BOOL)prefersStatusBarHidden {
@@ -308,18 +334,27 @@
     
 }
 
-- (void)pinUserToMap:(User *)user{
+- (void)pinUserToMap:(ModelUser *)user{
     JPSThumbnail *thumbnail = [[JPSThumbnail alloc] init];
 //    thumbnail.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:user.image]]];
-    thumbnail.urlImage = [NSURL URLWithString:user.image];
+    thumbnail.urlImage = [NSURL URLWithString:user.thumbImageUrl];
     thumbnail.title = user.name;
-    thumbnail.subtitle = user.userName;
-    thumbnail.coordinate = CLLocationCoordinate2DMake(user.latitude, user.longitude);
-    thumbnail.disclosureBlock = ^{
-        NSLog(@"selected Empire");
-    };
-    
-    [mapView addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:thumbnail]];
+    thumbnail.subtitle = user.email;
+    // get latitude and longitude from about
+    NSString *latitude;
+    NSString *longitude;
+    NSArray *locations = [user.about componentsSeparatedByString:@","];
+    if (locations.count == 2) {
+        latitude = [locations firstObject];
+        longitude = [locations lastObject];
+        
+        thumbnail.coordinate = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
+        thumbnail.disclosureBlock = ^{
+            NSLog(@"selected Empire");
+        };
+        
+        [mapView addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:thumbnail]];
+    }
 }
 
 @end
