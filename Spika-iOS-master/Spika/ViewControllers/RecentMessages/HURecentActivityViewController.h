@@ -25,10 +25,14 @@
 #import "HUBaseTableViewController.h"
 #import "HUBaseViewController+Style.h"
 
+#import <CoreLocation/CoreLocation.h>
+
 @class ModelRecentActivity;
 
 @interface HURecentActivityViewController : HUBaseTableViewController{
     UILabel *_noItemsLabel;
+    
+    CLLocationManager *locationManager;
 }
 
 @property (nonatomic, weak) ModelRecentActivity *activity;

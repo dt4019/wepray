@@ -133,8 +133,8 @@
     self.window.rootViewController = _tabBarController;
     
 //    [self.window setRootViewController:_navigationController];
-    [self.window addSubview:_sideMenuView.view];
-    [self.window addSubview:_subMenuViewController.view];
+//    [self.window addSubview:_sideMenuView.view];
+//    [self.window addSubview:_subMenuViewController.view];
     [self presentLoginViewController:NO];
     [self setupNotifications];
     

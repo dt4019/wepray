@@ -8,6 +8,8 @@
 
 #import "Map.h"
 
+#import "AppDelegate.h"
+
 @interface Map ()
 
 @end
@@ -55,15 +57,23 @@
     
     ModelUser *user = [UserManager defaultManager].getLoginedUser;
     
+    NSString *latitude;
+    NSString *longitude;
+    NSArray *locations = [user.about componentsSeparatedByString:@","];
+    if (locations.count == 2) {
+        latitude = [locations firstObject];
+        longitude = [locations lastObject];
+    }
+    
     void(^successBlock)(id result) = ^(id result) {
         [[AlertViewManager defaultManager] dismiss];
         dataSource = [[NSMutableArray alloc]initWithArray:result];
-        
+        [self pinUserToMap:user];
         for (ModelUser *_user in dataSource) {
-            int index = [dataSource indexOfObject:_user];
-            double latitude = 10.779442 + index * 0.1;
-            double longitude = 106.632817 + index * 0.1;
-            _user.about = [NSString stringWithFormat:@"%f,%f", latitude, longitude];
+            int index = [dataSource indexOfObject:_user] + 1;
+//            double latitude = 10.779442 + index * 0.001;
+//            double longitude = 106.632817 + index * 0.001;
+            _user.about = [NSString stringWithFormat:@"%f,%f", [latitude doubleValue] + index * 0.001, [longitude doubleValue] + index * 0.001];
             [self pinUserToMap:_user];
         }
     };
@@ -73,7 +83,6 @@
                                                     error:nil];
 }
 - (void)viewWillAppear:(BOOL)animated{
-    
 }
 // Add this Method
 - (BOOL)prefersStatusBarHidden {
@@ -208,24 +217,15 @@
     span.latitudeDelta=0.2;
     span.longitudeDelta=0.2;
     locationManager = [[CLLocationManager alloc]init];
-    CLLocation *location1 = [locationManager location];
+    CLLocationCoordinate2D location = [locationManager.location coordinate];
     
-    CLLocationCoordinate2D location = [location1 coordinate];
-    
-    location.latitude = location.latitude;
-    location.longitude = location.longitude;
     region.span=span;
     region.center = location;
     
-    /*Geocoder Stuff*/
-//    
-//    MKReverseGeocoder *geoCoder=[[MKReverseGeocoder alloc] initWithCoordinate:location];
-//    geoCoder.delegate = self;
-//    [geoCoder start];
     mapView.showsUserLocation = TRUE;
     
-    [mapView setRegion:region animated:TRUE];
-    [mapView regionThatFits:region];
+//    [mapView setRegion:region animated:TRUE];
+//    [mapView regionThatFits:region];
 }
 #pragma mark - Start update
 - (void)startUpdates
@@ -351,6 +351,8 @@
         thumbnail.coordinate = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
         thumbnail.disclosureBlock = ^{
             NSLog(@"selected Empire");
+            [[AppDelegate getInstance].tabBarController setSelectedIndex:0];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NotificationShowProfile object:user];
         };
         
         [mapView addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:thumbnail]];

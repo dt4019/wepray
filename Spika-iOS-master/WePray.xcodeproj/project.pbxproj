@@ -2773,11 +2773,6 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = HU;
-				TargetAttributes = {
-					36EBCFF260C77D50801513EE = {
-						DevelopmentTeam = MKHK43PEEM;
-					};
-				};
 			};
 			buildConfigurationList = 36EBC29149579B38EAD70952 /* Build configuration list for PBXProject "WePray" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -3307,8 +3302,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Kha Nguyen (68H39BQ88G)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kha Nguyen (68H39BQ88G)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Spika/External\"",
@@ -3325,8 +3320,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = WePray;
-				PROVISIONING_PROFILE = "1272BF7C-69C7-493B-9890-CF362B8D8932";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1272BF7C-69C7-493B-9890-CF362B8D8932";
+				PROVISIONING_PROFILE = "46500020-E531-4FE1-AB6F-6986B3ECE1D4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "46500020-E531-4FE1-AB6F-6986B3ECE1D4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -3392,8 +3387,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Kha Nguyen (68H39BQ88G)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kha Nguyen (68H39BQ88G)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Spika/External\"",
@@ -3410,8 +3405,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = WePray;
-				PROVISIONING_PROFILE = "1272BF7C-69C7-493B-9890-CF362B8D8932";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1272BF7C-69C7-493B-9890-CF362B8D8932";
+				PROVISIONING_PROFILE = "46500020-E531-4FE1-AB6F-6986B3ECE1D4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "46500020-E531-4FE1-AB6F-6986B3ECE1D4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -3446,8 +3441,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Kha Nguyen (68H39BQ88G)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Kha Nguyen (68H39BQ88G)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Spika/External\"",
@@ -3464,8 +3459,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = WePray;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1272BF7C-69C7-493B-9890-CF362B8D8932";
+				PROVISIONING_PROFILE = "46500020-E531-4FE1-AB6F-6986B3ECE1D4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "46500020-E531-4FE1-AB6F-6986B3ECE1D4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Adhoc;

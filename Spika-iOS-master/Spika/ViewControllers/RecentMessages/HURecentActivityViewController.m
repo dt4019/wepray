@@ -33,6 +33,7 @@
 #import "AppDelegate.h"
 #import "UserManager.h"
 
+
 @interface HURecentActivityViewController ()
 
 @end
@@ -46,7 +47,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-		self.title = NSLocalizedString(@"Recent activity", nil);
+        self.title = NSLocalizedString(@"Recent activity", nil);
 		
 		void(^observerBlock)(MAKVONotification *notification) = ^(MAKVONotification *notification) {
 			DatabaseManager *manager = [notification target];
@@ -109,9 +110,12 @@
     
 //    [self showTutorialIfCan:NSLocalizedString(@"tutorial-recent",nil)];
     
+    locationManager = [[CLLocationManager alloc]init];
+    CLLocationCoordinate2D location = [locationManager.location coordinate];
     // load current user
     ModelUser *_user = [UserManager defaultManager].getLoginedUser;
-    _user.about = @"10.781635,106.630618";
+//    _user.about = @"10.781635,106.630618";
+    _user.about = [NSString stringWithFormat:@"%f,%f", location.latitude, location.longitude];
     [[DatabaseManager defaultManager] updateUser:_user
                                         oldEmail:_user.email
                                          success:^(BOOL isSuccess, NSString *errStr){
@@ -145,7 +149,8 @@
     
 //    self.navigationItem.leftBarButtonItems = [self backBarButtonItemsWithSelector:@selector(backButtonDidPress:)];
     self.navigationItem.leftBarButtonItem=nil;
-    self.navigationItem.hidesBackButton=YES;
+    [self.navigationItem setHidesBackButton:YES animated:NO];
+    self.navigationItem.titleView.center = self.navigationController.navigationBar.center;
 }
 
 #pragma mark - UITableViewDatasource
