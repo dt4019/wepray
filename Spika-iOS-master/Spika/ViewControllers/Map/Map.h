@@ -12,7 +12,6 @@
 #import <CoreLocation/CoreLocation.h>
 #import "JPSThumbnail.h"
 #import "JPSThumbnailAnnotation.h"
-#import "User.h"
 
 #import "UserManager.h"
 #import "AlertViewManager.h"

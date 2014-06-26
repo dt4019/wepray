@@ -383,7 +383,7 @@
 		[this showHideNoUsersLabelForDatasource:nil];
         
         if(_tutorialShowed == NO && (this.items == nil || this.items.count == 0))
-            [this showOneTimeAfterBootMessage:NSLocalizedString(@"No Contact Advice", nil) key:kOneTimeMsgNoContact];
+//            [this showOneTimeAfterBootMessage:NSLocalizedString(@"No Contact Advice", nil) key:kOneTimeMsgNoContact];
             
         [this showViewType:HUViewTypeMain animated:YES];
         

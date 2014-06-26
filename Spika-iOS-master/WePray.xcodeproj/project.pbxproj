@@ -45,7 +45,6 @@
 		6840682B1953244400E7C6C3 /* DisplayMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 684068271953244400E7C6C3 /* DisplayMap.m */; };
 		6840682C1953244400E7C6C3 /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 684068291953244400E7C6C3 /* Map.m */; };
 		6840682D1953244400E7C6C3 /* Map.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6840682A1953244400E7C6C3 /* Map.xib */; };
-		68406831195324BD00E7C6C3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 68406830195324BD00E7C6C3 /* User.m */; };
 		687517791956D5A60054BB00 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 6875176A1956D5A60054BB00 /* Icon-29.png */; };
 		6875177A1956D5A60054BB00 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 6875176B1956D5A60054BB00 /* Icon-40.png */; };
 		6875177B1956D5A60054BB00 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 6875176C1956D5A60054BB00 /* Icon-50.png */; };
@@ -556,8 +555,6 @@
 		684068281953244400E7C6C3 /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
 		684068291953244400E7C6C3 /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
 		6840682A1953244400E7C6C3 /* Map.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Map.xib; sourceTree = "<group>"; };
-		6840682F195324BD00E7C6C3 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		68406830195324BD00E7C6C3 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		6875176A1956D5A60054BB00 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		6875176B1956D5A60054BB00 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
 		6875176C1956D5A60054BB00 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
@@ -1388,15 +1385,6 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
-		6840682E195324BD00E7C6C3 /* User */ = {
-			isa = PBXGroup;
-			children = (
-				6840682F195324BD00E7C6C3 /* User.h */,
-				68406830195324BD00E7C6C3 /* User.m */,
-			);
-			path = User;
-			sourceTree = "<group>";
-		};
 		687517901956D9EA0054BB00 /* JSONKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -2181,7 +2169,6 @@
 		ADC6450217E0761600C16A9D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6840682E195324BD00E7C6C3 /* User */,
 				ADC6450317E0761600C16A9D /* HUBaseModel.h */,
 				ADC6450417E0761600C16A9D /* HUBaseModel.m */,
 				ADC6450517E0761600C16A9D /* HUDefaultMessageNotification.h */,
@@ -3184,7 +3171,6 @@
 				ADC6477317E0761700C16A9D /* HUEditableLabelView.m in Sources */,
 				6840680E19531F8B00E7C6C3 /* AKTabBarController.m in Sources */,
 				ADC6477417E0761700C16A9D /* HUExploreUsersView.m in Sources */,
-				68406831195324BD00E7C6C3 /* User.m in Sources */,
 				68406822195322D900E7C6C3 /* JPSThumbnailAnnotation.m in Sources */,
 				ADC6477517E0761700C16A9D /* HUGroupsCategoryTableViewCell+Style.m in Sources */,
 				B37479D018745EDA001CE0E7 /* HUVoiceMessageDetailViewController.m in Sources */,

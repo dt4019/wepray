@@ -65,22 +65,40 @@
         longitude = [locations lastObject];
     }
     
-    void(^successBlock)(id result) = ^(id result) {
-        [[AlertViewManager defaultManager] dismiss];
-        dataSource = [[NSMutableArray alloc]initWithArray:result];
-        [self pinUserToMap:user];
-        for (ModelUser *_user in dataSource) {
-            int index = [dataSource indexOfObject:_user] + 1;
-//            double latitude = 10.779442 + index * 0.001;
-//            double longitude = 106.632817 + index * 0.001;
-            _user.about = [NSString stringWithFormat:@"%f,%f", [latitude doubleValue] + index * 0.001, [longitude doubleValue] + index * 0.001];
-            [self pinUserToMap:_user];
-        }
-    };
+//    void(^successBlock)(id result) = ^(id result) {
+//        [[AlertViewManager defaultManager] dismiss];
+//        dataSource = [[NSMutableArray alloc]initWithArray:result];
+//        [self pinUserToMap:user];
+//        for (ModelUser *_user in dataSource) {
+//            int index = [dataSource indexOfObject:_user] + 1;
+////            double latitude = 10.779442 + index * 0.001;
+////            double longitude = 106.632817 + index * 0.001;
+//            _user.about = [NSString stringWithFormat:@"%f,%f", [latitude doubleValue] + index * 0.001, [longitude doubleValue] + index * 0.001];
+//            [self pinUserToMap:_user];
+//        }
+//    };
+//    
+//    [[DatabaseManager defaultManager] findUserContactList:user
+//                                                  success:successBlock
+//                                                    error:nil];
     
-    [[DatabaseManager defaultManager] findUserContactList:user
-                                                  success:successBlock
-                                                    error:nil];
+    
+    [[DatabaseManager defaultManager] findUsersContainingString:@""
+                                                        fromAge:@0
+                                                          toAge:@0
+                                                         gender:@""
+                                                        success:^(NSArray *users) {
+                                                            [[AlertViewManager defaultManager] dismiss];
+                                                            dataSource = [[NSMutableArray alloc]initWithArray:users];
+                                                            [self pinUserToMap:user];
+                                                            for (ModelUser *_user in dataSource) {
+                                                                //             _user.about = [NSString stringWithFormat:@"%f,%f", [latitude doubleValue] + index * 0.001, [longitude doubleValue] + index * 0.001];
+                                                                [self pinUserToMap:_user];
+                                                            }
+                                                        }
+                                                          error:^(NSString *errorString) {
+                                                              [[AlertViewManager defaultManager] dismiss];
+                                                          }];
 }
 - (void)viewWillAppear:(BOOL)animated{
 }

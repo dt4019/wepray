@@ -24,16 +24,16 @@
  */
 #import "ServerManager.h"
 
-#define ServerListAPIURL        @"http://officialapi.spikaapp.com/api/servers"
+//#define ServerListAPIURL        @"http://officialapi.spikaapp.com/api/servers"
 
-//#define ServerListAPIURL @"http://tinycom.asuscomm.com/Spika-Server-master/wwwroot/api/servers"
+#define ServerListAPIURL @"http://tinycom.asuscomm.com/Spika-Server-master/wwwroot/api/servers"
 
 /* change here */
-#define DefaultAPIEndPoint              @"http://officialapi.spikaapp.com"
-#define DefaultPageUrl                  @"http://officialapi.spikaapp.com/page"
+//#define DefaultAPIEndPoint              @"http://officialapi.spikaapp.com"
+//#define DefaultPageUrl                  @"http://officialapi.spikaapp.com/page"
 
-//#define DefaultAPIEndPoint              @"http://tinycom.asuscomm.com/Spika-Server-master/wwwroot"
-//#define DefaultPageUrl                  @"http://tinycom.asuscomm.com/Spika-Server-master/wwwroot/page"
+#define DefaultAPIEndPoint              @"http://tinycom.asuscomm.com/Spika-Server-master/wwwroot"
+#define DefaultPageUrl                  @"http://tinycom.asuscomm.com/Spika-Server-master/wwwroot/page"
 /* end change here */
 /* end change here */
 
