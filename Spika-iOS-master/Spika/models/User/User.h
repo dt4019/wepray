@@ -13,7 +13,8 @@
 @property (nonatomic, retain) NSString *iD;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *userName;
-@property (nonatomic, retain) NSString *image;
+@property (nonatomic, retain) NSString *email;
+@property (nonatomic, retain) NSString *thumbImageUrl;
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
 

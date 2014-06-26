@@ -374,8 +374,8 @@ typedef enum {
     
     if (self.selectedViewController == vc)
     {
-        if ([vc isKindOfClass:[UINavigationController class]])
-            [(UINavigationController *)self.selectedViewController popToRootViewControllerAnimated:YES];
+//        if ([vc isKindOfClass:[UINavigationController class]])
+//            [(UINavigationController *)self.selectedViewController popToRootViewControllerAnimated:YES];
     }
     else
     {

@@ -100,46 +100,6 @@
     return @"People arround me";
 }
 
-- (void) getListUsers{
-    dataSource = [[NSMutableArray alloc]init];
-    
-    // create user 1
-    User *user1 = [[User alloc]init];
-    user1.name = @"Ngọc Trinh";
-    user1.userName = @"ngoc_trinh";
-    user1.image = @"http://vietbao24h.vn/Upload/Images/News/26042013/52757a14-d3b9-4053-881f-a32f4def4e6f.jpg";
-    user1.latitude = 10.780749;
-    user1.longitude = 106.633161;
-    
-    // create user 2
-    User *user2 = [[User alloc]init];
-    user2.name = @"Sơn Tùng";
-    user2.userName = @"son_tung";
-    user2.image = @"http://img.v3.news.zdn.vn/Uploaded/gstngi/2014_03_07/Sontung5_thumb.jpg";
-    user2.latitude = 10.781635;
-    user2.longitude = 106.630618;
-    
-    // create user 3
-    User *user3 = [[User alloc]init];
-    user3.name = @"Miu Lê";
-    user3.userName = @"miu_le";
-    user3.image = @"http://p.img.nct.nixcdn.com/playlist/2013/12/04/a/c/b/4/1386152909920_500.jpg";
-    user3.latitude = 10.780254;
-    user3.longitude = 106.632227;
-    
-    // create user 4
-    User *user4 = [[User alloc]init];
-    user4.name = @"Khởi My";
-    user4.userName = @"khoi_my";
-    user4.image = @"http://img.webphunu.net/sites/default/files/2013-06/Khoi-My.jpeg";
-    user4.latitude = 10.779442;
-    user4.longitude = 106.632817;
-    
-    [dataSource addObject:user1];
-    [dataSource addObject:user2];
-    [dataSource addObject:user3];
-    [dataSource addObject:user4];
-}
 #pragma mark - Delegate of MapView
 -(MKAnnotationView *)mapView:(MKMapView *)_mapView viewForAnnotation: (id <MKAnnotation>)annotation {
     MKPinAnnotationView *pinView = nil;
@@ -178,16 +138,16 @@
         // view location by longtitude and latitude
         [self viewLocationFromLongtitudeAndLatitude:newLocation];
         // create current user info
-        User *user = [[User alloc]init];
+        
+        ModelUser *user = [[ModelUser alloc]init];
         user.name = @"Me";
-        user.userName = @"bao_anh";
-        user.image = @"https://www.remindnmore.com/images/individual.png";
-        user.latitude = newLocation.coordinate.latitude;
-        user.longitude = newLocation.coordinate.longitude;
+        user.email = @"";
+        user.thumbImageUrl = @"https://www.remindnmore.com/images/individual.png";
+        user.about = [NSString stringWithFormat:@"%f,%f", newLocation.coordinate.latitude, newLocation.coordinate.longitude];
         // add current user to list
         [dataSource addObject:user];
         // pin all users to map
-        for (User *user in dataSource) {
+        for (ModelUser *user in dataSource) {
             [self pinUserToMap:user];
         }
     }else{
@@ -337,7 +297,9 @@
 - (void)pinUserToMap:(ModelUser *)user{
     JPSThumbnail *thumbnail = [[JPSThumbnail alloc] init];
 //    thumbnail.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:user.image]]];
-    thumbnail.urlImage = [NSURL URLWithString:user.thumbImageUrl];
+    if (user.thumbImageUrl) {
+        thumbnail.urlImage = [NSURL URLWithString:user.thumbImageUrl];
+    }
     thumbnail.title = user.name;
     thumbnail.subtitle = user.email;
     // get latitude and longitude from about
