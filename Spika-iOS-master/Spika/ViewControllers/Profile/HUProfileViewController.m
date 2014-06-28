@@ -154,7 +154,7 @@
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         CGPoint absolutePosition = [_bottomElement convertPoint:_bottomElement.frame.origin toView:_contentView];
-        [_contentHeightConstraint setConstant:absolutePosition.y + _bottomElement.height + 20];
+        [_contentHeightConstraint setConstant:absolutePosition.y + _bottomElement.height + 20 + TAB_BAR_HEIGHT];
     });
     
     

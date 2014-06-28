@@ -24,6 +24,7 @@
                 <outlet property="_userAvatarImageView" destination="3BO-SG-YB6" id="aJh-uC-toZ"/>
                 <outlet property="contentView" destination="0os-G7-qPE" id="PaD-2d-gyu"/>
                 <outlet property="view" destination="1" id="aWo-Mk-nav"/>
+                <outlet property="viewTemp" destination="kdb-UK-2ET" id="cCx-nn-wpq"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -199,6 +200,11 @@
                                         <action selector="onSave" destination="-1" eventType="touchUpInside" id="Ztq-5g-i4p"/>
                                     </connections>
                                 </button>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kdb-UK-2ET">
+                                    <rect key="frame" x="0.0" y="544" width="320" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <constraints>

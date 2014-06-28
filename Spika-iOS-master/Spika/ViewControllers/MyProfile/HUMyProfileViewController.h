@@ -55,6 +55,8 @@
     IBOutlet NSLayoutConstraint *_avatarImageViewHeightConstraint;
     IBOutlet NSLayoutConstraint *_aboutViewHeightConstraint;
     IBOutlet NSLayoutConstraint *_contentHeightConstraint;
+                                            
+    IBOutlet UIView *viewTemp;
 }
 
 - (IBAction) onSave;
