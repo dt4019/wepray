@@ -147,9 +147,13 @@
     [super viewWillAppear:animated];
     self.view.userInteractionEnabled = true;
     
+    self.navigationItem.leftBarButtonItem = [CSKit barButtonItemWithNormalImageNamed:@"hu_profile_icon"
+                                                                         highlighted:nil
+                                                                              target:self
+                                                                            selector:@selector(toggleMyProfile:)];
 //    self.navigationItem.leftBarButtonItems = [self backBarButtonItemsWithSelector:@selector(backButtonDidPress:)];
-    self.navigationItem.leftBarButtonItem=nil;
-    [self.navigationItem setHidesBackButton:YES animated:NO];
+//    self.navigationItem.leftBarButtonItem=nil;
+//    [self.navigationItem setHidesBackButton:YES animated:NO];
     self.navigationItem.titleView.center = self.navigationController.navigationBar.center;
 }
 
@@ -267,6 +271,9 @@
 
 -(void) toggleSubMenu:(UIButton*) button {
     [[NSNotificationCenter defaultCenter] postNotificationName:NotificationSideMenuUsersSelected object:nil];
+}
+-(void) toggleMyProfile:(UIButton*) button {
+    [[NSNotificationCenter defaultCenter] postNotificationName:NotificationSideMenuMyProfileSelected object:nil];
 }
 
 -(void) backButtonDidPress:(id)sender {

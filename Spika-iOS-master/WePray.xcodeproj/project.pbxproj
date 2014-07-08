@@ -29,6 +29,7 @@
 		4012FABE18D97B39004B1538 /* HUUsersInGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4012FABC18D97B39004B1538 /* HUUsersInGroupViewController.m */; };
 		4012FABF18D97B39004B1538 /* HUUsersInGroupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4012FABD18D97B39004B1538 /* HUUsersInGroupViewController.xib */; };
 		680729D01956C8D80047320B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 680729CF1956C8D80047320B /* MBProgressHUD.m */; };
+		68315B5B196C20DF00DB813D /* Default_avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 68315B5A196C20DF00DB813D /* Default_avatar.jpg */; };
 		6840680B19531F8B00E7C6C3 /* AKTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 684067F419531F8B00E7C6C3 /* AKTab.m */; };
 		6840680C19531F8B00E7C6C3 /* AKTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 684067F619531F8B00E7C6C3 /* AKTabBar.m */; };
 		6840680D19531F8B00E7C6C3 /* AKTabBarController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 684067F819531F8B00E7C6C3 /* AKTabBarController.bundle */; };
@@ -526,6 +527,7 @@
 		4012FABD18D97B39004B1538 /* HUUsersInGroupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HUUsersInGroupViewController.xib; sourceTree = "<group>"; };
 		680729CE1956C8D80047320B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		680729CF1956C8D80047320B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		68315B5A196C20DF00DB813D /* Default_avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Default_avatar.jpg; sourceTree = "<group>"; };
 		684067F319531F8B00E7C6C3 /* AKTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKTab.h; sourceTree = "<group>"; };
 		684067F419531F8B00E7C6C3 /* AKTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKTab.m; sourceTree = "<group>"; };
 		684067F519531F8B00E7C6C3 /* AKTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKTabBar.h; sourceTree = "<group>"; };
@@ -1451,6 +1453,7 @@
 				ADC6437617E0761500C16A9D /* CSConstants.h */,
 				687517881956D6060054BB00 /* Default-568h@2x.png */,
 				687517891956D6060054BB00 /* Default~iphone.png */,
+				68315B5A196C20DF00DB813D /* Default_avatar.jpg */,
 				ADC6437B17E0761500C16A9D /* InfoPlist.strings */,
 				ADC6437F17E0761500C16A9D /* Localizable.strings */,
 				B3409E00186DED9A0033A4B3 /* UserInterfaces */,
@@ -2951,6 +2954,7 @@
 				ADC646E117E0761600C16A9D /* hp_wall_background_pattern.png in Resources */,
 				ADC646E217E0761600C16A9D /* hp_wall_background_pattern@2x.png in Resources */,
 				ADC646E317E0761600C16A9D /* hp_wall_tableview_bottom_shadow.png in Resources */,
+				68315B5B196C20DF00DB813D /* Default_avatar.jpg in Resources */,
 				ADC646E417E0761600C16A9D /* hp_wall_tableview_bottom_shadow@2x.png in Resources */,
 				B3E3A37A18BBA572003E8863 /* iconUnread@2x.png in Resources */,
 				ADC646E517E0761600C16A9D /* hp_wall_tableview_top_shadow.png in Resources */,

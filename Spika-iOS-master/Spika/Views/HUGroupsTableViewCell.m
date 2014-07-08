@@ -75,6 +75,9 @@
         self.selectedBackgroundView = [[HUSelectedTableViewCellVew alloc] initWithFrame:self.frame withHeight:77];
     }
     
+    _favoriteImageView.hidden = YES;
+    _massageIconView.hidden = YES;
+    
     return self;
 }
 

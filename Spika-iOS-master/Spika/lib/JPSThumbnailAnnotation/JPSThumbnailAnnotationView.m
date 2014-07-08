@@ -23,9 +23,11 @@ static CGFloat const kJPSThumbnailAnnotationViewAnimationDuration = 0.25f;
 
 @property (nonatomic, readwrite) CLLocationCoordinate2D coordinate;
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIButton *locationButton;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *subtitleLabel;
 @property (nonatomic, strong) ActionBlock disclosureBlock;
+@property (nonatomic, strong) ActionBlock locationBlock;
 
 @property (nonatomic, strong) CAShapeLayer *bgLayer;
 @property (nonatomic, strong) UIButton *disclosureButton;
@@ -56,6 +58,7 @@ static CGFloat const kJPSThumbnailAnnotationViewAnimationDuration = 0.25f;
 
 - (void)setupView {
     [self setupImageView];
+    [self setupLocationButton];
     [self setupTitleLabel];
     [self setupSubtitleLabel];
     [self setupDisclosureButton];
@@ -70,6 +73,19 @@ static CGFloat const kJPSThumbnailAnnotationViewAnimationDuration = 0.25f;
     _imageView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     _imageView.layer.borderWidth = 0.5f;
     [self addSubview:_imageView];
+}
+
+- (void)setupLocationButton{
+    BOOL iOS7 = [[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f;
+    UIButtonType buttonType = iOS7 ? UIButtonTypeSystem : UIButtonTypeCustom;
+    _locationButton = [UIButton buttonWithType:buttonType];
+    _locationButton.frame = CGRectMake(25.0f, 65.0f, 25.0f, 25.0f);
+//    _locationButton.tintColor = [UIColor grayColor];
+    _locationButton.layer.cornerRadius = _locationButton.frame.size.width/2;
+    _locationButton.layer.masksToBounds = YES;
+    _locationButton.backgroundColor = [UIColor blueColor];
+    [_locationButton addTarget:self action:@selector(didTapLocationButton) forControlEvents:UIControlEventTouchDown];
+    [self addSubview:_locationButton];
 }
 
 - (void)setupTitleLabel {
@@ -128,8 +144,14 @@ static CGFloat const kJPSThumbnailAnnotationViewAnimationDuration = 0.25f;
     self.titleLabel.text = thumbnail.title;
     self.subtitleLabel.text = thumbnail.subtitle;
 //    self.imageView.image = thumbnail.image;
-    [self.imageView setImageWithURL:thumbnail.urlImage placeholderImage:[UIImage imageNamed:@""]];
+    [self.imageView setImageWithURL:thumbnail.urlImage placeholderImage:[UIImage imageNamed:@"user_stub"]];
     self.disclosureBlock = thumbnail.disclosureBlock;
+    self.locationBlock = thumbnail.locationBlock;
+    if (thumbnail.isCurrUser) {
+        _locationButton.hidden = YES;
+    }else{
+        _locationButton.hidden = NO;
+    }
 }
 
 #pragma mark - JPSThumbnailAnnotationViewProtocol
@@ -259,6 +281,9 @@ static CGFloat const kJPSThumbnailAnnotationViewAnimationDuration = 0.25f;
 
 - (void)didTapDisclosureButton {
     if (self.disclosureBlock) self.disclosureBlock();
+}
+- (void)didTapLocationButton {
+    if (self.locationBlock) self.locationBlock();
 }
 
 + (UIImage *)disclosureButtonImage {

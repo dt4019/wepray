@@ -99,6 +99,22 @@
                                                           error:^(NSString *errorString) {
                                                               [[AlertViewManager defaultManager] dismiss];
                                                           }];
+    
+
+//    void(^successBlock)(id result) = ^(id result) {
+//        
+//        [[AlertViewManager defaultManager] dismiss];
+//        dataSource = [[NSMutableArray alloc]initWithArray:result];
+//        [self pinUserToMap:user];
+//        for (ModelUser *_user in dataSource) {
+//            //             _user.about = [NSString stringWithFormat:@"%f,%f", [latitude doubleValue] + index * 0.001, [longitude doubleValue] + index * 0.001];
+//            [self pinUserToMap:_user];
+//        }
+//    };
+//    
+//    [[DatabaseManager defaultManager] findUserContactList:user
+//                                                  success:successBlock
+//                                                    error:nil];
 }
 - (void)viewWillAppear:(BOOL)animated{
 }
@@ -314,6 +330,11 @@
 
 - (void)pinUserToMap:(ModelUser *)user{
     JPSThumbnail *thumbnail = [[JPSThumbnail alloc] init];
+    
+    ModelUser *currUser = [UserManager defaultManager].getLoginedUser;
+    if ([user.name isEqualToString:currUser.name]) {
+        thumbnail.isCurrUser = YES;
+    }
 //    thumbnail.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:user.image]]];
     if (user.thumbImageUrl) {
         thumbnail.urlImage = [NSURL URLWithString:user.thumbImageUrl];
@@ -330,9 +351,14 @@
         
         thumbnail.coordinate = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
         thumbnail.disclosureBlock = ^{
-            NSLog(@"selected Empire");
+            NSLog(@"disclosureBlock");
             [[AppDelegate getInstance].tabBarController setSelectedIndex:0];
             [[NSNotificationCenter defaultCenter] postNotificationName:NotificationShowProfile object:user];
+        };
+        thumbnail.locationBlock = ^{
+            NSLog(@"locationBlock");
+            [[AppDelegate getInstance].tabBarController setSelectedIndex:0];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NotificationShowUserWall object:user];
         };
         
         [mapView addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:thumbnail]];

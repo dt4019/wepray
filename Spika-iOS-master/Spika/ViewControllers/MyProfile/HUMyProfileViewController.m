@@ -252,13 +252,13 @@
 
 -(void) enableEditors{
     _nameValueLabel.enabled = YES;
-    _aboutValueLabel.editable = YES;
+    _aboutValueLabel.editable = NO;
     _birthdayValueLabel.enabled = YES;
     _genderValueLabel.enabled = YES;
     _statusValueLabel.enabled = YES;
     _saveButton.alpha = 1.0;
     _saveButton.enabled = YES;
-    _aboutValueLabel.userInteractionEnabled = YES;
+    _aboutValueLabel.userInteractionEnabled = NO;
     
     [_userAvatarImageView removeGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(avatarImageViewDidTap:)]];
     [_userAvatarImageView setUserInteractionEnabled:YES];
@@ -413,7 +413,7 @@
         [[AlertViewManager defaultManager] showHUD];
         
         _user.name = _nameValueLabel.text;
-        _user.about = _aboutValueLabel.text;
+//        _user.about = _aboutValueLabel.text;
         
         NSString *genderKey = [[Utils getKeyForLocalizedString:_genderValueLabel.text] lowercaseString];
         if(genderKey == nil){

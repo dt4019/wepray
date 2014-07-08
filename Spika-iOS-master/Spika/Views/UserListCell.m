@@ -133,6 +133,10 @@
         _contactImageView.image = [UIImage imageNamed:@"not_in_favorites_icon"];
         
     }
+    
+    _userStatusIconView.hidden = YES;
+    _massageIconView.hidden = YES;
+    _contactImageView.hidden = YES;
 }
 
 #pragma mark - Frame
