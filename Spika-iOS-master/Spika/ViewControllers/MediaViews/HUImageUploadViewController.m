@@ -74,11 +74,11 @@
     [self.view addSubview:imageView];
     
     UIButton *cancelButton = [self newCancelButtonWithSelector:@selector(backButtonDidPress:)];
-    cancelButton.position = CGPointMake(0, self.view.height - cancelButton.height * 2);
+    cancelButton.position = CGPointMake(0, self.view.height - cancelButton.height * 2 - TAB_BAR_HEIGHT * 2);
     [self.view addSubview:cancelButton];
     
     UIButton *uploadButton = [self newUploadButtonWithSelector:@selector(uploadButtonDidPress:)];
-    uploadButton.position = CGPointMake(self.view.width - uploadButton.width, self.view.height - uploadButton.height * 2);
+    uploadButton.position = CGPointMake(self.view.width - uploadButton.width, self.view.height - uploadButton.height * 2 - TAB_BAR_HEIGHT * 2);
     [self.view addSubview:uploadButton];
     
 }
@@ -104,8 +104,9 @@
 -(void) uploadButtonDidPress:(id)sender {
     
     if (self.onUploadBlock) {
-        [[AlertViewManager defaultManager] showWaiting:NSLocalizedString(@"Uploading image", nil)
-											   message:@""];
+//        [[AlertViewManager defaultManager] showWaiting:NSLocalizedString(@"Uploading image", nil)
+//											   message:@""];
+        [[AlertViewManager defaultManager] showHUD];
         self.onUploadBlock(self);
     } else {
         [CSToast showToast:NSLocalizedString(@"ERROR: No onUploadBlock() has been provided", nil)

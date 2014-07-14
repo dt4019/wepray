@@ -290,12 +290,15 @@
         
     };
     
-    [UIActionSheet actionSheetWithTitle:NSLocalizedString(@"Please select source", nil)
-                                message:nil
-                                buttons:@[NSLocalizedString(@"Camera", nil),NSLocalizedString(@"Album", nil)]
-                             showInView:self.view
-                              onDismiss:dismissBlock
-                               onCancel:cancelBlock];
+//    [UIActionSheet actionSheetWithTitle:NSLocalizedString(@"Please select source", nil)
+//                                message:nil
+//                                buttons:@[NSLocalizedString(@"Camera", nil),NSLocalizedString(@"Album", nil)]
+//                             showInView:self.navigationController.view
+//                              onDismiss:dismissBlock
+//                               onCancel:cancelBlock];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"Set profile photo" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Choose existing photo",@"Take new photo", nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
+    [actionSheet showInView:self.tabBarController.tabBar];
     
 }
 

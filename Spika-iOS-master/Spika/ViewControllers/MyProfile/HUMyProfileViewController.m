@@ -171,7 +171,11 @@
 - (void) populateWithData {
     
     [_nameValueLabel setText:_user.name];
-    [_genderValueLabel setText:NSLocalizedString(_user.gender,nil)];
+    if (_user.gender.length > 0) {
+        [_genderValueLabel setText:NSLocalizedString(_user.gender,nil)];
+    }else{
+        [_genderValueLabel setText:@"Not specified"];
+    }
     [_aboutValueLabel setText:_user.about];
     
     if(_user.birthday != 0){
@@ -230,7 +234,7 @@
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         CGPoint absolutePosition = [_saveButton convertPoint:_saveButton.frame.origin toView:_contentView];
-        [_contentHeightConstraint setConstant:absolutePosition.y / 2 + _saveButton.height + 20 + TAB_BAR_HEIGHT];
+        [_contentHeightConstraint setConstant:absolutePosition.y / 2 + _saveButton.height];
     });
 
     
@@ -273,7 +277,7 @@
         NSString *dateString = [format stringFromDate:_birthdayDate];
         [_birthdayValueLabel setText:dateString];
     }else{
-        [_birthdayValueLabel setText:@""];
+        [_birthdayValueLabel setText:@"Not specified"];
     }
 }
 
@@ -316,10 +320,14 @@
     [UIActionSheet actionSheetWithTitle:NSLocalizedString(@"Please select source", nil)
                                 message:nil
                                 buttons:@[NSLocalizedString(@"Camera", nil),NSLocalizedString(@"Album", nil)]
-                             showInView:self.view
+                             showInView:[self appDelegate].tabBarController.view
                               onDismiss:dismissBlock
                                onCancel:cancelBlock];
     
+}
+
+- (AppDelegate *)appDelegate{
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
 }
 
 -(void) loadAvatar{
@@ -613,7 +621,7 @@
 		[self.view endEditing:YES];
         [UIView animateWithDuration:0.2
                          animations:^{
-                             _datePicker.frame = CGRectMake(_datePicker.x, _datePicker.y - _datePicker.height,
+                             _datePicker.frame = CGRectMake(_datePicker.x, _datePicker.y - _datePicker.height - TAB_BAR_HEIGHT,
                                                             _datePicker.width, _datePicker.height);
                          } completion:nil];
         return NO;
@@ -734,7 +742,7 @@
             NSString *selectedValue = _pickerTableView.dataSourceArray[indexPath.row];
             
 			if (indexPath.row == _genderDataSource.count - 1)
-				[_genderValueLabel setText:@""];
+				[_genderValueLabel setText:@"Not specified"];
 			else
 				[_genderValueLabel setText:NSLocalizedString(selectedValue,nil)];
             

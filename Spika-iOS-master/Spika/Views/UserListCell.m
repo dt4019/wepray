@@ -134,7 +134,7 @@
         
     }
     
-    _userStatusIconView.hidden = YES;
+//    _userStatusIconView.hidden = YES;
     _massageIconView.hidden = YES;
     _contactImageView.hidden = YES;
 }

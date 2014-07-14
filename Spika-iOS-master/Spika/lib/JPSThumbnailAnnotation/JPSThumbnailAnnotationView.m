@@ -85,6 +85,7 @@ static CGFloat const kJPSThumbnailAnnotationViewAnimationDuration = 0.25f;
     _locationButton.layer.masksToBounds = YES;
     _locationButton.backgroundColor = [UIColor blueColor];
     [_locationButton addTarget:self action:@selector(didTapLocationButton) forControlEvents:UIControlEventTouchDown];
+    _locationButton.layer.zPosition = 0;
     [self addSubview:_locationButton];
 }
 

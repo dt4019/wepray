@@ -61,7 +61,7 @@
 	label.text = NSLocalizedString(@"No Recent Activities", nil);
 	label.font = [UIFont systemFontOfSize:kFontSizeSmall];
 	CGSize size = [label.text sizeForBoundingSize:CGSizeMake(NSNotFound, NSNotFound) font:label.font];
-	label.frame = CGRectMake(0, 110, size.width, size.height);
+	label.frame = CGRectMake(0, 110, size.width + 100, size.height);
 	label.textAlignment = NSTextAlignmentCenter;
 	label.center = CGPointMake([UIScreen mainScreen].bounds.size.width / 2, label.center.y);
 	label.hidden = NO;

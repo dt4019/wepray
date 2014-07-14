@@ -188,7 +188,8 @@
 #define kListViewBigWidth 200
 
 // date formate
-#define kDefaultDateFormat @"YYYY.MM.dd"
+//#define kDefaultDateFormat @"YYYY.MM.dd"
+#define kDefaultDateFormat @"MM/dd/YYYY"
 #define kDefaultTimeStampFormat @"YYYY.MM.dd HH:mm"
 
 // data sources

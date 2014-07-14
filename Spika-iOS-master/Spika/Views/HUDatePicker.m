@@ -40,6 +40,7 @@
         
         _datePicker = [[UIDatePicker alloc] init];
         _datePicker.datePickerMode = UIDatePickerModeDate;
+        _datePicker.maximumDate = [NSDate date];
 
         _datePicker.frame = CGRectMake(
             0,kToolbarHeight,320,kUIPickerViewHeight

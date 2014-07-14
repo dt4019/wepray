@@ -230,7 +230,12 @@
                                                  _birthdayDate = [NSDate dateWithTimeIntervalSince1970:_user.birthday];
                                              }
                                              
-                                             [_genderValueLabel setText:NSLocalizedString(_user.gender,nil)];
+                                             if (_user.gender.length > 0) {
+                                                 [_genderValueLabel setText:NSLocalizedString(_user.gender,nil)];
+                                             }else{
+                                                 [_genderValueLabel setText:@"Not specified"];
+                                             }
+                                             
                                              [_aboutValueLabel setText:_user.about];
                                              
                                              if(_user.birthday != 0){
@@ -274,7 +279,7 @@
         NSString *dateString = [format stringFromDate:_birthdayDate];
         [_birthdayValueLabel setText:dateString];
     }else{
-        [_birthdayValueLabel setText:@""];
+        [_birthdayValueLabel setText:@"Not specified"];
     }
 
     if(_user.lastLogin != 0){
