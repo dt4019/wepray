@@ -135,7 +135,10 @@ static CGFloat const kJPSThumbnailAnnotationViewAnimationDuration = 0.25f;
     
     _bgLayer.masksToBounds = NO;
     
-    [self.layer insertSublayer:_bgLayer atIndex:0];
+    [self.layer insertSublayer:_bgLayer above:_locationButton.layer];
+    _imageView.layer.zPosition = 1;
+//    [self.layer insertSublayer:_bgLayer atIndex:0];
+//    _locationButton.layer.zPosition = 0;
 }
 
 #pragma mark - Updating

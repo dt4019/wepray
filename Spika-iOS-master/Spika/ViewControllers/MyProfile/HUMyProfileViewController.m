@@ -234,7 +234,7 @@
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.2 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         CGPoint absolutePosition = [_saveButton convertPoint:_saveButton.frame.origin toView:_contentView];
-        [_contentHeightConstraint setConstant:absolutePosition.y / 2 + _saveButton.height];
+        [_contentHeightConstraint setConstant:absolutePosition.y / 2 + _saveButton.height + 30];
     });
 
     
