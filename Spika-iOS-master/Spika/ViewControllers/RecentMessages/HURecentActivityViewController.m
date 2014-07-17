@@ -109,28 +109,59 @@
 	// Do any additional setup after loading the view.
     
 //    [self showTutorialIfCan:NSLocalizedString(@"tutorial-recent",nil)];
-    
+    [[AlertViewManager defaultManager] showHUD];
     locationManager = [[CLLocationManager alloc]init];
     CLLocationCoordinate2D location = [locationManager.location coordinate];
-    // load current user
-    ModelUser *_user = [UserManager defaultManager].getLoginedUser;
-//    _user.about = @"10.781635,106.630618";
-    _user.about = [NSString stringWithFormat:@"%f,%f", location.latitude, location.longitude];
-    [[DatabaseManager defaultManager] updateUser:_user
-                                        oldEmail:_user.email
-                                         success:^(BOOL isSuccess, NSString *errStr){
-                                             dispatch_async(dispatch_get_main_queue(), ^{
-                                                 if (isSuccess) {
-                                                     [[UserManager defaultManager] reloadUserDataWithCompletion:^(id result) {
-                                                         NSLog(@"update location of current user success");
-                                                     }];
-                                                     
-                                                 }
-                                             });
-                                             
-                                         } error:^(NSString *errStr){
-                                             NSLog(@"update location of current user fail");
-                                         }];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init] ;
+    [geocoder reverseGeocodeLocation:locationManager.location
+                   completionHandler:^(NSArray *placemarks, NSError *error) {
+                       NSString *city = @"";
+                       if (error == nil){
+                           // get name address by location
+                           CLPlacemark *placemark = [placemarks objectAtIndex:0];
+                           NSDictionary *addressDictionary = placemark.addressDictionary;
+                           city = [addressDictionary objectForKey:@"State"];
+                       }
+                       // load current user
+                       ModelUser *_user = [UserManager defaultManager].getLoginedUser;
+                       // check if about of user contains city
+                       if (city.length > 0) {
+                           NSRange range = [_user.about rangeOfString:city];
+                           if (range.length == 0) {
+                               // add city to about
+                               _user.about = [_user.about stringByAppendingString:[NSString stringWithFormat:@";%@", city]];
+                           }
+                       }
+                       NSArray *arr = [_user.about componentsSeparatedByString:@";"];
+                       // get before location
+                       NSString *beforeLocation = @"";
+                       if (arr.count > 0) {
+                           beforeLocation = [arr objectAtIndex:0];
+                       }
+                       // update loacation in about
+                       if (beforeLocation.length > 0) {
+                           NSString *newLocation = [NSString stringWithFormat:@"%f,%f", location.latitude, location.longitude];
+                           _user.about = [_user.about stringByReplacingOccurrencesOfString:beforeLocation withString:newLocation];
+                       }
+                       
+                       [[DatabaseManager defaultManager] updateUser:_user
+                                                           oldEmail:_user.email
+                                                            success:^(BOOL isSuccess, NSString *errStr){
+                                                                dispatch_async(dispatch_get_main_queue(), ^{
+                                                                    [[AlertViewManager defaultManager] hideHUD];
+                                                                    if (isSuccess) {
+                                                                        [[UserManager defaultManager] reloadUserDataWithCompletion:^(id result) {
+                                                                            NSLog(@"update location of current user success");
+                                                                        }];
+                                                                        
+                                                                    }
+                                                                });
+                                                                
+                                                            } error:^(NSString *errStr){
+                                                                [[AlertViewManager defaultManager] hideHUD];
+                                                                NSLog(@"update location of current user fail");
+                                                            }];
+                   }];
 }
 // Setting the title of the tab.
 - (NSString *)tabTitle

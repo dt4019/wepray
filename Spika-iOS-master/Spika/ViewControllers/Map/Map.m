@@ -30,6 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"People arround me";
+    [self hideViewPicker];
     if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)])
     {
         [self prefersStatusBarHidden];
@@ -56,14 +57,24 @@
     [[AlertViewManager defaultManager] showHUD];
     
     ModelUser *user = [UserManager defaultManager].getLoginedUser;
-    
-    NSString *latitude;
-    NSString *longitude;
-    NSArray *locations = [user.about componentsSeparatedByString:@","];
-    if (locations.count == 2) {
-        latitude = [locations firstObject];
-        longitude = [locations lastObject];
+    // get list cities of current user
+    NSRange range = [user.about rangeOfString:@";"];
+    if (range.length > 0) {
+        listCitys = [[NSMutableArray alloc]initWithArray:[user.about componentsSeparatedByString:@";"]];
+        // remove location (long & lat), keep cities
+        [listCitys removeObjectAtIndex:0];
+        // add All to list citys
+        [listCitys insertObject:@"All Cities" atIndex:0];
     }
+    
+    
+//    NSString *latitude;
+//    NSString *longitude;
+//    NSArray *locations = [user.about componentsSeparatedByString:@","];
+//    if (locations.count == 2) {
+//        latitude = [locations firstObject];
+//        longitude = [locations lastObject];
+//    }
     
 //    void(^successBlock)(id result) = ^(id result) {
 //        [[AlertViewManager defaultManager] dismiss];
@@ -90,10 +101,9 @@
                                                         success:^(NSArray *users) {
                                                             [[AlertViewManager defaultManager] dismiss];
                                                             dataSource = [[NSMutableArray alloc]initWithArray:users];
-                                                            [self pinUserToMap:user];
+                                                            [dataSource addObject:user];
                                                             for (ModelUser *_user in dataSource) {
-                                                                //             _user.about = [NSString stringWithFormat:@"%f,%f", [latitude doubleValue] + index * 0.001, [longitude doubleValue] + index * 0.001];
-                                                                [self pinUserToMap:_user];
+                                                                [self pinUserToMap:_user withCity:@""];
                                                             }
                                                         }
                                                           error:^(NSString *errorString) {
@@ -173,17 +183,17 @@
         [self viewLocationFromLongtitudeAndLatitude:newLocation];
         // create current user info
         
-        ModelUser *user = [[ModelUser alloc]init];
-        user.name = @"Me";
-        user.email = @"";
-        user.thumbImageUrl = @"https://www.remindnmore.com/images/individual.png";
-        user.about = [NSString stringWithFormat:@"%f,%f", newLocation.coordinate.latitude, newLocation.coordinate.longitude];
-        // add current user to list
-        [dataSource addObject:user];
-        // pin all users to map
-        for (ModelUser *user in dataSource) {
-            [self pinUserToMap:user];
-        }
+//        ModelUser *user = [[ModelUser alloc]init];
+//        user.name = @"Me";
+//        user.email = @"";
+//        user.thumbImageUrl = @"https://www.remindnmore.com/images/individual.png";
+//        user.about = [NSString stringWithFormat:@"%f,%f", newLocation.coordinate.latitude, newLocation.coordinate.longitude];
+//        // add current user to list
+//        [dataSource addObject:user];
+//        // pin all users to map
+//        for (ModelUser *user in dataSource) {
+//            [self pinUserToMap:user];
+//        }
     }else{
         // view location by address
         [self viewLocationByAddress:self._address];
@@ -328,14 +338,22 @@
     
 }
 
-- (void)pinUserToMap:(ModelUser *)user{
+- (void)pinUserToMap:(ModelUser *)user withCity:(NSString *)city{
+    // check to filter with city
+    if (city.length > 0) {
+        if (user.about.length > 0) {
+            NSRange range = [user.about rangeOfString:city];
+            if (range.length == 0) {
+                return;
+            }
+        }
+    }
     JPSThumbnail *thumbnail = [[JPSThumbnail alloc] init];
     
     ModelUser *currUser = [UserManager defaultManager].getLoginedUser;
     if ([user.name isEqualToString:currUser.name]) {
         thumbnail.isCurrUser = YES;
     }
-//    thumbnail.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:user.image]]];
     if (user.thumbImageUrl) {
         thumbnail.urlImage = [NSURL URLWithString:user.thumbImageUrl];
     }
@@ -344,7 +362,15 @@
     // get latitude and longitude from about
     NSString *latitude;
     NSString *longitude;
-    NSArray *locations = [user.about componentsSeparatedByString:@","];
+    NSArray *locations;
+    NSRange range = [user.about rangeOfString:@";"];
+    if (range.length > 0) {
+        NSString *str = [[user.about componentsSeparatedByString:@";"]objectAtIndex:0];
+        locations = [str componentsSeparatedByString:@","];
+    }else{
+       locations = [user.about componentsSeparatedByString:@","];
+    }
+    
     if (locations.count == 2) {
         latitude = [locations firstObject];
         longitude = [locations lastObject];
@@ -363,6 +389,66 @@
         
         [mapView addAnnotation:[JPSThumbnailAnnotation annotationWithThumbnail:thumbnail]];
     }
+}
+
+#pragma mark - UIPickerViewDelegate
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return listCitys.count;
+}
+#pragma mark - UIPickerViewDelegate
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [listCitys objectAtIndex:row];
+}
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component{
+    return 50;
+}
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+}
+
+- (void)showViewPicker{
+    [UIView beginAnimations:nil context:nil];
+    [UIView animateWithDuration:0.5 animations:^{
+        viewPicker.frame = CGRectMake(viewPicker.frame.origin.x, self.view.frame.size.height - viewPicker.frame.size.height, viewPicker.frame.size.width, viewPicker.frame.size.height);
+    }];
+    [UIView commitAnimations];
+}
+- (void)hideViewPicker{
+    [UIView beginAnimations:nil context:nil];
+    [UIView animateWithDuration:0.5 animations:^{
+        viewPicker.frame = CGRectMake(viewPicker.frame.origin.x, self.view.frame.size.height, viewPicker.frame.size.width, viewPicker.frame.size.height);
+    }];
+    [UIView commitAnimations];
+}
+- (IBAction)btnCancelClick:(id)sender{
+    [self hideViewPicker];
+}
+- (IBAction)btnDoneClick:(id)sender{
+    // remove all pinks
+    [self clearAllPinksFromMap];
+    // get city selected
+    citySelected = [listCitys objectAtIndex:[pickerCity selectedRowInComponent:0]];
+    // if user select all city --> reset citySelected = @""
+    if ([citySelected isEqualToString:[listCitys objectAtIndex:0]]) {
+        citySelected = @"";
+    }
+    // pink to map
+    for (ModelUser *_user in dataSource) {
+        [self pinUserToMap:_user withCity:citySelected];
+    }
+    // hide view picker
+    [self hideViewPicker];
+    
+}
+- (IBAction)btnFilterClick:(id)sender{
+    [self showViewPicker];
+}
+
+- (void)clearAllPinksFromMap{
+    [mapView removeAnnotations:mapView.annotations];
 }
 
 @end
