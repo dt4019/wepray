@@ -75,7 +75,7 @@
 	if (_holderView == nil)
 	{
 		UIView *holderView = [[UIView alloc] initWithFrame:view.bounds];
-		holderView.backgroundColor = [UIColor blackColor];
+		holderView.backgroundColor = [UIColor clearColor];
 		holderView.alpha = 1.0;
 		
 		UIView *shadowView = [[UIView alloc] init];

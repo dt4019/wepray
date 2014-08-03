@@ -2589,6 +2589,7 @@
 	
     NSString *strUrl = [NSString stringWithFormat:@"activitySummary"];
     
+    
     [self setDefaultHeaderValues];
 	
 	CSResultBlock block = ^(NSDictionary *result) {

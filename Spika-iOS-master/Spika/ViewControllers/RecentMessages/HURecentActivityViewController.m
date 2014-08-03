@@ -186,7 +186,9 @@
 //    self.navigationItem.leftBarButtonItem=nil;
 //    [self.navigationItem setHidesBackButton:YES animated:NO];
     self.navigationItem.titleView.center = self.navigationController.navigationBar.center;
+    [UserManager reloadRecentActivity];
 }
+
 
 #pragma mark - UITableViewDatasource
 
