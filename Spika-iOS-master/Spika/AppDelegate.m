@@ -79,7 +79,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Crittercism enableWithAppID:@"518a1b4b46b7c21aac000006"];
+//    [Crittercism enableWithAppID:@"518a1b4b46b7c21aac000006"];
+    [Crittercism enableWithAppID:@"8955Y22UEX.hcdev.wepray.com"];
+    
     
     NSDictionary *dic1 = [launchOptions objectForKey:@"UIApplicationLaunchOptionsRemoteNotificationKey"];
     if(dic1 != nil){

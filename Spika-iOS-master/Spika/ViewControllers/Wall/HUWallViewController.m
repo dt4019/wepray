@@ -602,12 +602,10 @@
                                   animated: NO];
 }
 #pragma mark - Timer Selectors
-/*
 - (void) onReloadTimer {
     
     [self reload];
 }
- */
 #pragma mark - Data Actions
 
 - (void) sendMessage:(NSString *)message {
@@ -1447,6 +1445,7 @@ didSelectLocationButton:(UIButton *)button {
     
     if ([self isMemberOfClass:[HUWallViewController class]]) {
         timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkMessageTimestampsForDelete) userInfo:nil repeats:YES];
+        _reloadTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(onReloadTimer) userInfo:nil repeats:YES];
     }
 }
 
@@ -1454,6 +1453,9 @@ didSelectLocationButton:(UIButton *)button {
     if (timer) {
         [timer invalidate];
         timer = nil;
+        
+        [_reloadTimer invalidate];
+        _reloadTimer = nil;
     }
 }
 
